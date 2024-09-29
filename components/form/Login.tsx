@@ -154,7 +154,6 @@ const LoginForm = () => {
           </View>
           <View style={[tw`flex-row justify-center items-center`, { gap: 0 }]}>
             <GoogleButton />
-            <GoogleButton />
           </View>
         </View>
       )}
