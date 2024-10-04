@@ -45,13 +45,6 @@
         }
       ],
       [
-        "@rnmapbox/maps",
-        {
-          "RNMapboxMapsDownloadToken": "sk.eyJ1IjoidHJ1enUxMDAyIiwiYSI6ImNtMWVsZnE3czJ5NDEyanNjdTNjNDFqcmMifQ.l8QkVIVEv7EFo_-UNubF3w",
-          "RNMapboxMapsVersion": "11.0.0"
-        }
-      ],
-      [
         "@react-native-google-signin/google-signin",
         {
           "iosUrlScheme": "com.googleusercontent.apps.884555979437-mro0jtaf1iqof723f8aenssj695mdnd4"
