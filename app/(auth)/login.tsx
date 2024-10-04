@@ -1,8 +1,6 @@
 import {
   View,
   Text,
-  SafeAreaView,
-  Platform,
   StyleSheet,
   Image,
   KeyboardAvoidingView,
@@ -71,21 +69,13 @@ export default function LoginScreen() {
           headerShown: false,
           headerTitle: "",
 
-          headerStyle: {
-            backgroundColor: COLORS.white2,
-          },
-          headerLargeStyle: {
-            backgroundColor: COLORS.white2,
-          },
-
-          headerTintColor: COLORS.tertiary,
           headerShadowVisible: false,
           headerBackVisible: true,
           gestureEnabled: false,
         }}
       />
 
-      <SafeAreaView style={[tw`bg-white h-full`, { flex: 1 }]}>
+      <View style={[tw`bg-white h-full`, { flex: 1 }]}>
         <ImageBackground
           source={require("../../assets/bg.png")}
           resizeMode="cover"
@@ -114,7 +104,7 @@ export default function LoginScreen() {
             </ScrollView>
           </KeyboardAvoidingView>
         </ImageBackground>
-      </SafeAreaView>
+      </View>
     </>
   );
 }

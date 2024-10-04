@@ -29,6 +29,7 @@ interface Props extends TextInputProps {
   onBlur?: () => void;
   style?: any;
   prefixIcon?: IconNode;
+  color?: string;
 }
 const Input = ({
   type,
@@ -36,6 +37,7 @@ const Input = ({
   setInputErrorMessage,
   labelTitle,
   prefixIcon,
+  color,
   ...props
 }: Props) => {
   const [value, setValue] = useState(props.value ? props.value : "");
@@ -87,7 +89,7 @@ const Input = ({
               onPress={() => setShowPassword(!showPassword)}
               // style={[tw`absolute right-4 top-4`]}
               size={23}
-              color={COLORS.gray}
+              color={color ? color : COLORS.primary}
             />
           ) : (
             <View></View>

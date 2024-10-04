@@ -48,7 +48,7 @@ import {
 import { Asset } from "expo-asset";
 import Constants from "expo-constants";
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import {
@@ -73,13 +73,11 @@ export default function App() {
   const colorScheme = useColorScheme();
   return (
     <AnimatedAppLoader>
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
-        </Stack>
-      </ThemeProvider>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        <Stack.Screen name="+not-found" />
+      </Stack>
     </AnimatedAppLoader>
   );
 }
@@ -109,6 +107,8 @@ const AnimatedSplashScreen: React.FC<AnimatedSplashScreenProps> = ({
   const [isAppReady, setAppReady] = useState(false);
   const [isSplashAnimationComplete, setAnimationComplete] = useState(false);
   const [imageHeight, setImageHeight] = useState(0);
+  const [isLoggedIn, setLoggedIn] = useState(true);
+  const router = useRouter();
 
   const fakeLoading = async (delay: number) => {
     return new Promise((resolve) => setTimeout(resolve, delay));
@@ -135,11 +135,21 @@ const AnimatedSplashScreen: React.FC<AnimatedSplashScreenProps> = ({
     } finally {
       setAppReady(true);
     }
-  }, []);
+  }, [router, isLoggedIn]);
   const handleImageLayout = (event: any) => {
     const { height } = event.nativeEvent.layout;
     setImageHeight(height);
   };
+
+  useEffect(() => {
+    if (isAppReady) {
+      if (isLoggedIn) {
+        router.push("/(tabs)");
+      } else {
+        router.push("/login");
+      }
+    }
+  }, [isAppReady, isLoggedIn, router]);
   return (
     <View style={{ flex: 1 }}>
       {isAppReady && children}

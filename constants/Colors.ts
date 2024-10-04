@@ -26,9 +26,11 @@ export const Colors = {
 };
 
 export const COLORS = {
-  primary: "#2E3190",
-  secondary: "#444262",
-  tertiary: "#312651",
+  primary: "#FC6701",
+  secondary: "#FF9F1C",
+  // primary: "#2E3190",
+  // secondary: "#444262",
+  // tertiary: "#312651",
 
   gray: "#83829A",
   gray2: "#C1C0C8",
@@ -39,7 +41,7 @@ export const COLORS = {
 
   tabWhite: "#EDEDED",
 
-  black: "	#000000",
+  black: "#000000",
 };
 
 export const FONT = {

@@ -18,7 +18,7 @@ import tw from "twrnc";
 import { SafeAreaView } from "react-native";
 import { useState } from "react";
 
-export default function HomeScreen() {
+export default function ActivitiesScreen() {
   const [headerContentHeight, setHeaderContentHeight] = useState(0);
 
   const handleHeaderLayout = (event: any) => {
@@ -34,26 +34,13 @@ export default function HomeScreen() {
             styles.headerContainer,
             {
               paddingTop:
-                Platform.OS === "android"
-                  ? StatusBar.currentHeight + 105 - headerContentHeight
-                  : 0,
+                Platform.OS === "android" ? StatusBar.currentHeight + 30 : 30,
             },
           ]}
           imageStyle={styles.imageBackground} // Custom style for the image
         >
           <View style={styles.headerContent} onLayout={handleHeaderLayout}>
-            <Text style={styles.greetingText}>Xin chào, Vũ</Text>
-            <View style={styles.badgeContainer}>
-              <Text style={styles.badgeText}>200</Text>
-              <View
-                style={{
-                  width: 24,
-                  height: 24,
-                  borderRadius: 9999,
-                  backgroundColor: "#F25843",
-                }}
-              />
-            </View>
+            <Text style={styles.greetingText}>Hoạt động</Text>
           </View>
           <View style={styles.searchContainer}>
             <Ionicons name="search-outline" size={24} />
@@ -81,7 +68,7 @@ const styles = StyleSheet.create({
   },
   headerContent: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
   },
   greetingText: {

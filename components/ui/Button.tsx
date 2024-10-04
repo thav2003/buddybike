@@ -22,19 +22,19 @@ const Button = ({ variant, onPress, children, ...props }: Props) => {
     switch (variant) {
       case "primary":
         return [
-          tw`py-4 my-2 rounded-xl`,
+          tw`py-4 my-2 rounded-xl `,
           { backgroundColor: COLORS.primary },
           props.style,
         ];
       case "secondary":
         return [
-          tw`py-4 my-2 rounded-xl`,
-          { backgroundColor: COLORS.tertiary },
+          tw`py-4 my-2 rounded-xl `,
+          { backgroundColor: COLORS.secondary },
           props.style,
         ];
       default:
         return [
-          tw`py-4 my-2 rounded-xl`,
+          tw`py-4 my-2 rounded-xl `,
           { backgroundColor: COLORS.white },
           props.style,
         ];
